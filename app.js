@@ -20,7 +20,7 @@ const fetchinData = (url) => {
     fetch(url)
         .then((response) => response.json())
         .then((data) => handleData(data));
-}
+};
 
 const handleData = (e) => {
     clearResults();
@@ -51,7 +51,11 @@ const handleData = (e) => {
                 </div>
                 <div>
                     <h6 class="fw-bold">${element.title}</h6>
-                    <h6 style="color:gray">${element.authors[0].profile_name} ${element.authors[0].verified == true ? `<i class="text-primary bi-patch-check-fill"></i>` : ""}  </h6>
+                    <h6 style="color:gray">${element.authors[0].profile_name} ${
+            element.authors[0].verified == true
+                ? `<i class="text-primary bi-patch-check-fill"></i>`
+                : ""
+        }  </h6>
                     <p style="color:gray">${element.others.views} views</p>
                 </div>
             </div>
@@ -75,17 +79,17 @@ const clearResults = () => {
 // ~ Default: all category
 fetchinData(allCategoryAPI);
 
-allCategory.addEventListener('click', () => fetchinData(allCategoryAPI));
+allCategory.addEventListener("click", () => fetchinData(allCategoryAPI));
 
-musicCategory.addEventListener('click', () => fetchinData(musicCategoryAPI));
+musicCategory.addEventListener("click", () => fetchinData(musicCategoryAPI));
 
-comedyCategory.addEventListener('click', () => fetchinData(comedyCategoryAPI));
+comedyCategory.addEventListener("click", () => fetchinData(comedyCategoryAPI));
 
-drawingCategory.addEventListener('click', () => handleDrawingCategory());
+drawingCategory.addEventListener("click", () => handleDrawingCategory());
 
 const handleDrawingCategory = () => {
     clearResults();
-    const path = './Media/Icon.png';
+    const path = "./Media/Icon.png";
     const noContent = document.createElement("div");
     noContent.innerHTML = `
         <div class="d-flex flex-column justify-content-center">
@@ -96,10 +100,5 @@ const handleDrawingCategory = () => {
         </div>
     `;
 
-    resultSection.appendChild(noContent);   
-}
-
-// * Blog page 
-const directedBlogPage = () => {
-    
-}
+    resultSection.appendChild(noContent);
+};
